@@ -100,9 +100,9 @@ function footerPhases(slide) {
  box(slide, 0, SH-38, SW, 38, S2, BDR, 0.5);
  var phases = [
  {t:'Ph1 — Q4 2026', s:'TRX · 2t · €103K/yr', c:G},
- {t:'Ph2 — Q1–Q2 2027', s:'7t · €363K/yr · Break-even Q2 2027', c:PUR},
- {t:'Ph3 — Q3 2027–Q2 2028', s:'22t · €1.14M/yr', c:AMB},
- {t:'Ph4 — Q3 2028 → KPI',s:'30t · €1.56M/yr · >€2.1M net 2028+', c:TEAL},
+ {t:'Ph2 — Q1–Q2 2027', s:'7t · €464K/yr · on-call −30% · Break-even Q2 2027', c:PUR},
+ {t:'Ph3 — Q3 2027–Q2 2028', s:'22t · €1.46M/yr · incl. on-call savings', c:AMB},
+ {t:'Ph4 — Q3 2028 → KPI',s:'30t · €1.99M/yr · >€2.85M net 2028+', c:TEAL},
  ];
  phases.forEach(function(ph, i) {
  var x = 8 + i * 236;
@@ -167,8 +167,8 @@ function buildSlide1(pres) {
  // Lime recoverable tile
  box(sl, 622, statY, 330, 64, '#f5ffe0', LIME, 1.5);
  txt(sl, 'Recoverable capacity · KPI target (30/43 teams)', 624, statY+6, 326, 13, {size:7.5, bold:true, color:GY});
- txt(sl, '€1.56M / yr', 624, statY+19, 200, 26, {size:24, bold:true, color:G});
- txt(sl, 'Full €1.56M/yr from Phase 4 (Q3 2028) · 19.5 eng. freed · full potential 43t: €2.23M', 624, statY+46, 326, 14, {size:7.5, color:GY2});
+ txt(sl, '€1.99M / yr', 624, statY+19, 200, 26, {size:24, bold:true, color:G});
+ txt(sl, 'From Phase 4 (Q3 2028) · incl. on-call savings (30% · €8K/eng) · full potential 43t: €2.85M', 624, statY+46, 326, 14, {size:7.5, color:GY2});
  // Timeline dots
  var tl = [[G,'Q4 2026','€103K'],[GM,'Q1 2027','€363K'],[AMB,'Q3 2027','€1.14M'],[TEAL,'Q3 2028','€1.56M'],['#B5E941','2028+','>€2.1M']];
  tl.forEach(function(d, i) {
@@ -235,9 +235,9 @@ function buildSlide2(pres) {
  clearSlide(sl);
 
  hdrBand(sl,
- '€1.56M/yr at 70% adoption (30 teams) — phased by domain, proven at each gate before scaling',
+ '€1.99M/yr at 70% adoption (30 teams) — phased by domain, proven at each gate before scaling',
  'Ka-Minions · Business Case · Ideas2Impact 2026',
- 'Phase 1: TRX pilot (2 teams, €103K/yr) · KPI target: 30/43 teams (70%), 9 domains, 19.5 FTE · Full potential: €2.23M'
+ 'Phase 1: TRX pilot (2 teams, €103K/yr) · KPI target: 30/43 teams (70%), 9 domains · Full potential (incl. on-call): €2.85M'
  );
 
  // LEFT: domain table 
@@ -322,9 +322,9 @@ function buildSlide2(pres) {
  });
  var rtData = [
  ['Phase 1 · Q4 2026', '2', '€103,718', '~€3,500', '~€100K'],
- ['Phase 2 · Q1–Q2 2027', '7', '€363,013', '~€9,000', '~€354K'],
- ['Phase 3 · Q3 2027–Q2 2028', '22', '€1,140,898', '~€25K', '~€1.12M'],
- ['Phase 4 KPI · 30t Q3 2028+','30', '€1,557,000', '~€80K', '>€1.48M/yr'],
+ ['Phase 2 · Q1–Q2 2027 · +on-call', '7', '€463,813', '~€9,000', '~€455K'],
+ ['Phase 3 · Q3 2027–Q2 2028 · +on-call', '22', '€1,457,698', '~€25K', '~€1.43M'],
+ ['Phase 4 KPI · 30t Q3 2028+ · +on-call','30', '€1,989,000', '~€80K', '>€1.91M/yr'],
  ];
  rtData.forEach(function(r, i) {
  var ry = mty+14+i*16;
@@ -338,8 +338,8 @@ function buildSlide2(pres) {
  // KPI row
  var kpiry = mty+14+64;
  box(sl, rx, kpiry, rw, 18, GL, BDR, 0.5);
- txt(sl, 'Phase 4 KPI target · 70% adoption = 30 teams · from Q3 2028', rx+4, kpiry+3, 260, 12, {size:7.5, bold:true, color:G});
- txt(sl, '>€1.48M / yr', rx+rw-70, kpiry+3, 66, 12, {size:9, bold:true, color:G, align:'right'});
+ txt(sl, 'Phase 4 KPI target · 70% adoption = 30 teams · from Q3 2028 · incl. on-call', rx+4, kpiry+3, 260, 12, {size:7.5, bold:true, color:G});
+ txt(sl, '>€1.91M / yr', rx+rw-70, kpiry+3, 66, 12, {size:9, bold:true, color:G, align:'right'});
 
  // Single ask callout
  box(sl, rx, mty+96, rw, 28, '#fff5f5', RED, 0.5);
@@ -564,9 +564,9 @@ function buildSlide5(pres) {
  // 3 headline tiles
  var ftW2 = (C2W - P*2 - 8) / 3;
  var ftdata = [
- {l:'Savings at KPI target', v:'€1.56M/yr', s:'30 teams · Q3 2028', lime:true},
- {l:'Engineering capacity freed', v:'19.5 eng', s:'same headcount', lime:true},
- {l:'ROI at Q10 · 2028', v:'~6×', s:'€2.15M vs €361K'},
+ {l:'Savings at KPI target', v:'€1.99M/yr', s:'30 teams · incl. on-call · Q3 2028', lime:true},
+ {l:'Engineering capacity freed', v:'~25 eng', s:'capacity + on-call reduction', lime:true},
+ {l:'ROI at Q10 · 2028', v:'~7.9×', s:'€2.87M vs €361K'},
  ];
  ftdata.forEach(function(ft, i) {
  var fx = C2X+P + i*(ftW2+4);
@@ -585,11 +585,11 @@ function buildSlide5(pres) {
  var sMax = 2100; // €K max
  var barAreaH1 = 80, barAreaY1 = ch1Y+12;
  var bars1 = [
- {label:"Q4'26", ph:[103.7, 0, 0, 0 ]},
- {label:"Q1'27", ph:[103.7, 259.3, 0, 0 ]},
- {label:"Q3'27", ph:[103.7, 259.3, 777.9, 0 ]},
- {label:"Q3'28", ph:[103.7, 259.3, 777.9, 416.1 ]},
- {label:"2028+", ph:[103.7, 259.3, 777.9, 959.1 ]},
+ {label:"Q4'26", ph:[103.7,   0,      0,      0    ]},
+ {label:"Q1'27", ph:[103.7, 360.1,    0,      0    ]},
+ {label:"Q3'27", ph:[103.7, 360.1,  993.9,    0    ]},
+ {label:"Q3'28", ph:[103.7, 360.1,  993.9,  531.3  ]},
+ {label:"2028+", ph:[103.7, 360.1,  993.9,  860.1  ]},
  ];
  var phCols1 = [G, PUR, AMB, TEAL];
  var bW1 = 44, bGap1 = 10;
@@ -631,8 +631,8 @@ function buildSlide5(pres) {
  var ch2Y = ch1Y + barAreaH1 + 44;
  txt(sl, 'Investment vs savings — 10 quarters', C2X+P, ch2Y, C2W-P*2, 10, {size:7, bold:true, color:GY});
 
- var savPts = [0, 25.9, 51.9, 142.6, 233.4, 518.6, 803.8, 1089.0, 1374.3, 1764.3, 2154.3];
- var invPts = [0, 87.0, 94.0, 119.0, 129.0, 178.0, 197.0, 216.0, 235.0, 323.0, 361.0];
+ var savPts = [0, 25.9, 51.8, 167.8, 283.8, 648.2, 1012.6, 1377.0, 1874.2, 2371.4, 2868.6];
+ var invPts = [0, 87.0, 94.0, 119.0, 129.0, 178.0,  197.0,  216.0,  235.0,  323.0,  361.0];
  var ch2Max = 2200;
  var ch2H = 68, ch2Y2 = ch2Y+12;
  var ch2Left = chartLeft1;
@@ -716,10 +716,10 @@ function buildSlide5(pres) {
  });
 
  var amorRows = [
- {ph:'Ph1 · 2t · Q4\'26', pc:G, ai:'~€15.5K', sav:'€103K', pct:'15%*', net:'~€88K', bg:WH},
- {ph:'Ph2 · 7t · Q1\'27', pc:PUR, ai:'~€21K', sav:'€363K', pct:'5.8%', net:'~€342K', bg:'#f6faf0'},
- {ph:'Ph3 · 22t · Q3\'27',pc:AMB, ai:'~€37K', sav:'€1.14M', pct:'3.2%', net:'~€1.1M', bg:WH},
- {ph:'Ph4 · 30t · Q3\'28',pc:TEAL, ai:'~€76K', sav:'€1.56M', pct:'4.9%', net:'>€1.48M', bg:GL},
+ {ph:'Ph1 · 2t · Q4\'26', pc:G,    ai:'~€15.5K', sav:'€103K',  pct:'15%*', net:'~€88K',   bg:WH},
+ {ph:'Ph2 · 7t +on-call', pc:PUR,  ai:'~€21K',   sav:'€464K',  pct:'4.5%', net:'~€443K',  bg:'#f6faf0'},
+ {ph:'Ph3 · 22t +on-call',pc:AMB,  ai:'~€37K',   sav:'€1.46M', pct:'2.5%', net:'~€1.42M', bg:WH},
+ {ph:'Ph4 · 30t +on-call',pc:TEAL, ai:'~€76K',   sav:'€1.99M', pct:'3.8%', net:'>€1.91M', bg:GL},
  ];
  amorRows.forEach(function(r, i) {
  var ry = BY+P+126 + i*18;
@@ -793,17 +793,17 @@ function buildSlide6(pres) {
  {ph:'PHASE 2\nMVPs creation', period:'Q1–Q2 2027 · 2Q',
  title:'Boosting KA Impact:\nfuel teams with AI Agents',
  desc:'Five selected teams implementing\nAI agents for product delivery',
- saving:'€363K/yr · 7 teams · Break-even Q2 2027',
- kpi:'KPI: 70% success rate Ka-Minions usage', c:PUR, chipBg:'#f3eeff'},
+ saving:'€464K/yr · 7 teams · on-call −30% · Break-even Q2 2027',
+ kpi:'KPI: 70% success rate · on-call reduction gate', c:PUR, chipBg:'#f3eeff'},
  {ph:'PHASE 3\nGrowth & Iterations', period:'Q3 2027–Q2 2028 · 4Q',
  title:'AI-Agents\nAcceleration',
  desc:'Driving efficiency by integrating\nAI agents within existing headcounts',
- saving:'€1.14M/yr · 22 teams',
+ saving:'€1.46M/yr · 22 teams · incl. on-call savings',
  kpi:'KPI: 40% Teams Ka-Minions adoption', c:AMB, chipBg:'#fff8e1'},
  {ph:'PHASE 4\nScale Up', period:'Q3 2028 → Always on',
  title:'AI agentic teams',
  desc:'Building Features and Services\nwith AI Agents as Team Members',
- saving:'€1.56M/yr · 30 teams · KPI target',
+ saving:'€1.99M/yr · 30 teams · KPI target · incl. on-call',
  kpi:'KPI: 70% adoption + 30% feature delivery to production', c:TEAL, chipBg:'#e0f7fa'},
  ];
 
@@ -838,9 +838,9 @@ function buildSlide6(pres) {
  roiFooter(sl, [
  {label:'Total investment', value:'€361K', sub:'Q4 2026 → Q10'},
  {label:'Break-even', value:'Q2 2027', sub:'savings overtake cost'},
- {label:'Savings at KPI', value:'€1.56M/yr', sub:'30 teams · from Q3 2028'},
- {label:'ROI at Q10', value:'~6×', sub:'€2.15M vs €361K invested'},
- {label:'Net value 2028+', value:'>€2.1M', sub:'full potential 43 teams'},
+ {label:'Savings at KPI', value:'€1.99M/yr', sub:'30 teams · incl. on-call'},
+ {label:'ROI at Q10', value:'~7.9×', sub:'€2.87M vs €361K invested'},
+ {label:'Net value 2028+', value:'>€2.85M', sub:'full potential 43 teams'},
  ]);
  txt(sl, '6 / 7', SW-40, SH-52, 36, 12, {size:9, color:GY});
 }
@@ -864,8 +864,8 @@ function buildSlide7(pres) {
  // CHART 1: Cumulative Investment vs Savings (bar chart using boxes) 
  txt(sl, 'CUMULATIVE SAVINGS vs INVESTMENT — 10 QUARTERS (€K)', 8, bodyY, 700, 12, {size:7.5, bold:true, color:GY});
 
- var CUM_SAV = [25.9, 51.9, 142.6, 233.4, 518.6, 803.8, 1089.0, 1374.3, 1764.3, 2154.3];
- var CUM_INV = [87.0, 94.0, 119.0, 129.0, 178.0, 197.0, 216.0, 235.0, 323.0, 361.0];
+ var CUM_SAV = [25.9, 51.8, 167.8, 283.8, 648.2, 1012.6, 1377.0, 1874.2, 2371.4, 2868.6];
+ var CUM_INV = [87.0, 94.0, 119.0, 129.0, 178.0,  197.0,  216.0,  235.0,  323.0,  361.0];
  var QLABELS = ["Q4'26","Q1'27","Q2'27","Q3'27","Q4'27","Q1'28","Q2'28","Q3'28","Q4'28","Q1'29"];
  var maxVal = 2200; // max for scaling
  var chartX = 8, chartY = bodyY + 14, chartW = 700, chartH = 160;
@@ -918,11 +918,11 @@ function buildSlide7(pres) {
  var phColors2 = [G, PUR, AMB, TEAL];
  // Each row: [Ph1, Ph2, Ph3, Ph4] stacked
  var rampStacks = [
- [103.7, 0, 0, 0 ],
- [103.7, 363.0, 0, 0 ],
- [103.7, 363.0, 1140.9, 0 ],
- [103.7, 363.0, 1140.9, 1557.0],
- [103.7, 363.0, 1140.9, 2100.0],
+ [103.7,   0,       0,       0     ],
+ [103.7, 463.8,     0,       0     ],
+ [103.7, 463.8,  1457.7,     0     ],
+ [103.7, 463.8,  1457.7,  1989.0  ],
+ [103.7, 463.8,  1457.7,  2849.1  ],
  ];
  var maxRamp = 3800;
  var c2BarH = 120, c2X = 8;
@@ -966,9 +966,9 @@ function buildSlide7(pres) {
  roiFooter(sl, [
  {label:'Total investment', value:'€361K', sub:'Q4 2026 → Q10'},
  {label:'Break-even', value:'Q2 2027', sub:'savings overtake cost'},
- {label:'Savings at KPI', value:'€1.56M/yr', sub:'30 teams · from Q3 2028'},
- {label:'ROI at Q10', value:'~6×', sub:'€2.15M vs €361K invested'},
- {label:'Net value 2028+', value:'>€2.1M', sub:'full potential 43 teams'},
+ {label:'Savings at KPI', value:'€1.99M/yr', sub:'30 teams · incl. on-call'},
+ {label:'ROI at Q10', value:'~7.9×', sub:'€2.87M vs €361K invested'},
+ {label:'Net value 2028+', value:'>€2.85M', sub:'full potential 43 teams'},
  ]);
  txt(sl, '7 / 7', SW-40, SH-52, 36, 12, {size:9, color:GY});
 }

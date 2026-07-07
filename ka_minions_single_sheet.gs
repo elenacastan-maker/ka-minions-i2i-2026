@@ -19,18 +19,18 @@ var C = {
 };
 
 var PHASES = [
-  { id:1, label:'Phase 1 — Hypothesis Validation', period:'Q4 2026',          teams:2,  savingYr:103718,  runCostQtr:3500,  setupCost:60000, color:'#1D4B00', kpi:'Bug resolution 3d → <3h' },
-  { id:2, label:'Phase 2 — MVPs Creation',         period:'Q1–Q2 2027',       teams:7,  savingYr:363013,  runCostQtr:9000,  setupCost:15000, color:'#7c3aed', kpi:'70% success rate · ✓ Break-even Q2 2027' },
-  { id:3, label:'Phase 3 — Growth & Iterations',   period:'Q3 2027–Q2 2028',  teams:22, savingYr:1140898, runCostQtr:25000, setupCost:25000, color:'#d97706', kpi:'40% teams adoption' },
-  { id:4, label:'Phase 4 KPI — Scale Up',          period:'Q3 2028 → Always On', teams:30, savingYr:1557000, runCostQtr:20000, setupCost:0,     color:'#0891b2', kpi:'70% adoption (30/43 teams) · 30% feature to prod' },
+  { id:1, label:'Phase 1 — Hypothesis Validation', period:'Q4 2026',          teams:2,  savingYr:103718,  runCostQtr:3500,  setupCost:60000, color:'#1D4B00', kpi:'Bug resolution 5d → <3h · 40× faster · n=206 issues' },
+  { id:2, label:'Phase 2 — MVPs Creation',         period:'Q1–Q2 2027',       teams:7,  savingYr:463813,  runCostQtr:9000,  setupCost:15000, color:'#7c3aed', kpi:'70% success rate · on-call −30% · ✓ Break-even Q2 2027' },
+  { id:3, label:'Phase 3 — Growth & Iterations',   period:'Q3 2027–Q2 2028',  teams:22, savingYr:1457698, runCostQtr:25000, setupCost:25000, color:'#d97706', kpi:'40% teams adoption · on-call savings scaling' },
+  { id:4, label:'Phase 4 KPI — Scale Up',          period:'Q3 2028 → Always On', teams:30, savingYr:1989000, runCostQtr:20000, setupCost:0,     color:'#0891b2', kpi:'70% adoption (30/43 teams) · 30% feature to prod · on-call −30%' },
 ];
 
 var QLABELS = ["Q4 '26","Q1 '27","Q2 '27","Q3 '27","Q4 '27","Q1 '28","Q2 '28","Q3 '28","Q4 '28","Q1 '29"];
 var QCAL    = ['Q4 2026','Q1 2027','Q2 2027','Q3 2027','Q4 2027','Q1 2028','Q2 2028','Q3 2028','Q4 2028','Q1 2029'];
-var CUM_SAV = [25.9, 51.9, 142.6, 233.4, 518.6, 803.8, 1089.0, 1374.3, 1764.3, 2154.3];
-var CUM_INV = [87.0, 94.0, 119.0, 129.0, 178.0, 197.0, 216.0, 235.0, 323.0, 361.0];
-var Q_SAV_I = [25.9, 26.0, 90.7, 90.8, 285.2, 285.2, 285.2, 285.3, 390.0, 390.0];
-var Q_INV_I = [87.0,  7.0, 25.0, 10.0,  49.0,  19.0,  19.0,  19.0,  88.0,  38.0];
+var CUM_SAV = [25.9, 51.8, 167.8, 283.8, 648.2, 1012.6, 1377.0, 1874.2, 2371.4, 2868.6];
+var CUM_INV = [87.0, 94.0, 119.0, 129.0, 178.0,  197.0,  216.0,  235.0,  323.0,  361.0];
+var Q_SAV_I = [25.9, 25.9, 116.0, 116.0, 364.4,  364.4,  364.4,  497.2,  497.2,  497.2];
+var Q_INV_I = [87.0,  7.0,  25.0,  10.0,  49.0,   19.0,   19.0,   19.0,   88.0,   38.0];
 
 function hdr(sh, row, col, nCols, text, bgHex, fgHex, fontSize) {
   var r = sh.getRange(row, col, 1, nCols);
@@ -81,14 +81,14 @@ function buildKaMinions() {
   R++;
 
   var kpis = [
-    ['Teams at KPI target',           '30 / 43 (70%)', 'Full potential at 43 teams: €2.23M/yr'],
-    ['Annual savings at KPI (30t)',    '€1,557,000',    'From Q3 2028 · Phase 4 · Always On'],
-    ['FTE capacity freed',            '19.5 engineers','Same headcount · more product delivery'],
+    ['Teams at KPI target',           '30 / 43 (70%)', 'Full potential at 43 teams: €2.85M/yr (incl. on-call savings)'],
+    ['Annual savings at KPI (30t)',    '€1,989,000',    'From Q3 2028 · Phase 4 · incl. on-call 30% reduction'],
+    ['FTE capacity freed',            '~25 engineers', 'Capacity + on-call savings from Phase 2 gate'],
     ['Break-even',                    'Q2 2027',       'Cumulative savings overtake total investment'],
-    ['ROI at Q10',                    '~6×',           '€2.15M saved vs €361K invested'],
-    ['Net value 2028+',               '>€2.1M/yr',     '30t KPI · 19.5 FTE freed'],
+    ['ROI at Q10',                    '~7.9×',         '€2.87M saved vs €361K invested'],
+    ['Net value 2028+',               '>€1.91M/yr',    '30t KPI · ~25 FTE equiv freed · on-call premium recovered'],
     ['Total investment Q1–Q10',       '€361,000',      'Setup + AI stack + enabler team (10 quarters)'],
-    ['AI stack cost vs savings',      '~3%',           'Paperclip + Claude API · scales linearly'],
+    ['AI stack cost vs savings',      '~4%',           'Paperclip + Claude API · scales linearly'],
     ['Phase 1 single ask',            '€60–80K',       'Q4 2026 setup only · gate-locked before next phase'],
     ['Avg engineer saving/yr',        '€80,000',       '25% capacity × €80K avg fully-loaded cost'],
   ];
@@ -214,11 +214,11 @@ function buildKaMinions() {
   R++;
 
   var rampData = [
-    ["Q4 '26 — Ph1 live",  103.7,    0,      0,       0     ],
-    ["Q1 '27 — Ph2 live",  103.7,  363.0,    0,       0     ],
-    ["Q3 '27 — Ph3 live",  103.7,  363.0, 1140.9,     0     ],
-    ["Q3 '28 — Ph4 KPI",   103.7,  363.0, 1140.9,  1557.0   ],
-    ["2028+ full scale",   103.7,  363.0, 1140.9,  2100.0   ],
+    ["Q4 '26 — Ph1 live",  103.7,     0,       0,       0     ],
+    ["Q1 '27 — Ph2 live",  103.7,  463.8,      0,       0     ],
+    ["Q3 '27 — Ph3 live",  103.7,  463.8,  1457.7,      0     ],
+    ["Q3 '28 — Ph4 KPI",   103.7,  463.8,  1457.7,  1989.0   ],
+    ["2028+ full scale",   103.7,  463.8,  1457.7,  2849.1   ],
   ];
   var rampBgs = [C.lightGreen,'#f3eeff','#fff8e1','#e0f7fa','#f0f9ff'];
   sh.getRange(R, 1, rampData.length, 5).setValues(rampData);
@@ -269,15 +269,16 @@ function buildKaMinions() {
     ['Avg engineer cost (fully loaded)', '€80,000/yr',    '€6,667/month · includes salary + benefits'],
     ['Capacity freed per engineer',      '25%',           '0.25 FTE equivalent = €20,000/yr saved per eng'],
     ['Phase 1 (2 teams × 6 eng)',        '€103,718/yr',   '= 2 × 6 × €20K × 0.93 ramp adjustment'],
-    ['Phase 2 (7 teams × 6 eng)',        '€363,013/yr',   '= 7 × 6 × €20K × 0.865 adj'],
-    ['Phase 3 (22 teams × 6 eng)',       '€1,140,898/yr', '= 22 × 6 × €20K × 0.864 adj'],
-    ['Phase 4 KPI (30 teams × 6 eng)',   '€1,557,000/yr', '= 30 × 6 × €20K × 0.865 adj'],
+    ['Phase 2 (7 teams × 6 eng)',        '€463,813/yr',   '= €363K capacity + €100.8K on-call (30% × 7t × 6eng × €8K)'],
+    ['Phase 3 (22 teams × 6 eng)',       '€1,457,698/yr', '= €1.14M capacity + €316.8K on-call savings'],
+    ['Phase 4 KPI (30 teams × 6 eng)',   '€1,989,000/yr', '= €1.557M capacity + €432K on-call savings'],
     ['LLM cost (Claude API)',            '~€1/task',      '1,750 tasks/team/yr · scales linearly with teams'],
     ['Paperclip platform',               '~€12,000/yr',   'Team plan · includes audit trail + governance'],
     ['AI stack vs savings at scale',     '~3%',           '€52K AI cost vs €1.56M savings at Phase 4 KPI'],
-    ['Break-even quarter',               'Q2 2027',       'Cum. savings €142.6K > cum. investment €119K'],
-    ['ROI at Q10 (Q1 2029)',             '~6×',           '€2,154K saved ÷ €361K invested = 5.97×'],
-    ['Full potential (43 teams)',        '€2,229,937/yr', 'If all KA teams adopt · not in KPI scope'],
+    ['Break-even quarter',               'Q2 2027',       'Cum. savings €167.8K > cum. investment €119K'],
+    ['ROI at Q10 (Q1 2029)',             '~7.9×',         '€2,868.6K saved ÷ €361K invested = 7.95×'],
+    ['Full potential (43 teams)',        '€2,849,137/yr', 'Capacity €2.23M + on-call €619K · if all KA teams adopt'],
+    ['On-call premium saving',          '€8K/eng/yr',    '30% reduction from Phase 2 (Sentinel mode gate KPI)'],
   ];
 
   sh.getRange(R, 1, assumptions.length, 3).setValues(assumptions).setFontFamily('Arial').setFontSize(10);
