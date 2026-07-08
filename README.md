@@ -13,7 +13,7 @@ Business case for deploying autonomous AI agents across all 43 KA engineering te
 - The problem & 3 value pillars (5d → <3h bug resolution · n=206 issues · 2 KA teams)
 - ROI & domain expansion (30/43 teams · 70% adoption KPI · incl. on-call savings)
 - Costs, ROI & governance (€361K total investment · ~7.9× ROI at Q10)
-- Enabler team & AI stack (Paperclip + Claude API · cost ~4% of savings)
+- Enabler team & AI stack (Paperclip + Claude API · combined running cost ~22% of savings at KPI)
 - Impact at a glance (financial model · savings ramp · investment vs savings)
 - Path to implementation (4-phase rollout · Q4 2026 → Q3 2028)
 
@@ -30,7 +30,8 @@ Business case for deploying autonomous AI agents across all 43 KA engineering te
 | Break-even | Q2 2027 |
 | ROI at Q10 | ~7.9× |
 | Total investment (10Q) | €361,000 |
-| AI stack cost vs savings | ~4% |
+| AI stack cost vs savings | ~4% (AI stack alone) · ~22% incl. enabler team |
+| Net annual gain at KPI | >€1.55M/yr (savings − AI stack − enabler team) |
 | Phase 1 single ask | €60–80K setup · Q4 2026 |
 | Avg bug resolution (measured) | 5 days → <3 hours · 40× faster · n=206 issues |
 
@@ -84,14 +85,16 @@ python3 build_business_case_pptx.py
 
 ## Financial model — 4-phase rollout
 
-| Phase | Period | Teams | Annual savings | AI stack/yr | Net/yr |
-|---|---|---|---|---|---|
-| Phase 1 — Hypothesis | Q4 2026 | 2 | €103,718 | ~€15.5K | ~€88K |
-| Phase 2 — MVPs | Q1–Q2 2027 | 7 | €463,813 (+on-call) | ~€21K | ~€443K |
-| Phase 3 — Growth | Q3 2027–Q2 2028 | 22 | €1,457,698 (+on-call) | ~€37K | ~€1.42M |
-| Phase 4 — Scale (KPI) | Q3 2028+ | 30 | €1,989,000 (+on-call) | ~€76K | >€1.91M |
+| Phase | Period | Teams | Annual savings | AI stack/yr | Enabler team/yr | Net/yr |
+|---|---|---|---|---|---|---|
+| Phase 1 — Hypothesis | Q4 2026 | 2 | €103,718 | ~€15.5K | ~€76K* | ~€12K |
+| Phase 2 — MVPs | Q1–Q2 2027 | 7 | €463,813 (+on-call) | ~€21K | ~€176K | ~€267K |
+| Phase 3 — Growth | Q3 2027–Q2 2028 | 22 | €1,457,698 (+on-call) | ~€37K | ~€296K | ~€1.13M |
+| Phase 4 — Scale (KPI) | Q3 2028+ | 30 | €1,989,000 (+on-call) | ~€76K | ~€360K | >€1.55M |
 
-Break-even Q2 2027 — cumulative savings overtake total investment after 3 quarters. On-call savings (30% reduction · €8K/eng/yr premium) activate at Phase 2 gate (Sentinel mode).
+\* Ph1 enabler team = reallocation of existing headcount · net incremental cash cost on people = €0 in Phase 1
+
+Break-even Q2 2027 — cumulative savings overtake total investment after 3 quarters. On-call savings (30% reduction · €8K/eng/yr premium) activate at Phase 2 gate (Sentinel mode). Enabler team cost stays flat from Phase 2 onward while savings scale with headcount.
 
 ---
 
@@ -100,7 +103,9 @@ Break-even Q2 2027 — cumulative savings overtake total investment after 3 quar
 - Avg engineer cost (fully loaded): €80,000/yr
 - Capacity freed per engineer: 25% = €20,000/yr
 - Claude API: ~€1/task · 1,750 tasks/team/yr
-- Paperclip platform: ~€12,000/yr (team plan)
+- Paperclip platform: ~€12K/yr (Ph1) → ~€24K/yr (Ph4) · team plan
+- Enabler team: 0.5 EM + 1 eng (Ph1, reallocation) → 1 EM + 2 eng (Ph2+) + domain champions (10% per team)
+- On-call premium saving: 30% reduction · €8K/eng/yr · activates at Phase 2 Sentinel gate
 - Bug resolution baseline: **5 days** (measured across 206 issues in 2 KA teams, July 2026)
 - Ka-Minion target: <3 hours = **40× faster**
 
